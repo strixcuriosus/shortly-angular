@@ -17,7 +17,10 @@ app.configure(function() {
   app.use(express.session());
 });
 
-app.get('/', handler.renderIndex);
+app.get('/', function(req, res) {
+  res.sendfile(__dirname + '/public/client/templates/home.html');
+});
+
 app.get('/create', handler.renderIndex);
 
 app.get('/links', handler.fetchLinks);
