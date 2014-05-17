@@ -5,17 +5,17 @@
 </head>
 <body ng-app='shortly'>
 <h1>SHORTLY</h1>
-<div id="container"><div class="links" ng-controller='linkController'><div class="link">
+<div id="container"><div class="links" ng-controller='linkController'><div class="link" ng-repeat="link in links">
   <img src="/redirect_icon.png">
   <div class="info">
-    <div class="visits"><span class="count">{{link.counts}}</span>Visits</div>
+    <div class="visits"><span class="count">{{link.visits}}</span>Visits</div>
     <div class="title">{{link.title}}</div>
-    <div class="original">{{link.original}}</div>
-    <a href="http://localhost:4568/738dd">{{link.url}}</a>
+    <div class="original">{{link.url}}</div>
+    <a href="http://localhost:4568/738dd">{{link.base_url}}</a>
   </div>
 </div></div></div>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://localhost:4568/client/js/app.js"></script>
-
+<link rel="stylesheet" type="text/css" href="http://localhost:4568/style.css">
 </body>
 </html>
