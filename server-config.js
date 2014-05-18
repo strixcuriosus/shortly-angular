@@ -8,20 +8,17 @@ var app = express();
 
 app.configure(function() {
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(partials());
   app.use(express.bodyParser());
-  app.use('/bower_components', express.static(__dirname + '/bower_components'));
   app.use(express.static(__dirname + '/public'));
-  app.use(express.cookieParser('shhhh, very secret'));
-  app.use(express.session());
+  app.use(express.static(__dirname + '/client/js'));
+  app.use(express.static(__dirname + '/bower_components'));
 });
 
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/public/client/templates/home.html');
+  res.sendfile(__dirname + '/public/client/index.html');
 });
 
-app.get('/create', handler.renderIndex);
+// app.get('/create', handler.renderIndex);
 
 app.get('/links', handler.fetchLinks);
 app.post('/links', handler.saveLink);
